@@ -1,8 +1,11 @@
 {
-  "name": "json-to-html",
-  "module": "main.ts",
+  "name": "p2-typescript-2024",
+  "module": "index.ts",
   "type": "module",
   "devDependencies": {
-    "bun-types": "^0.5.0"
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
   }
 }
