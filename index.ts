@@ -7,8 +7,8 @@ interface Movie {
     imdbId: string;
 }
 
-async function fetchComedyMovies(): Promise<Movie[]> {
-    const url = 'https://api.sampleapis.com/movies/comedy';
+async function fetchMovies(): Promise<Movie[]> {
+    const url = 'https://api.sampleapis.com/movies/animation';
     try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -33,11 +33,11 @@ function generateHTML(movies: Movie[]): string {
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Comedy Movies</title>
+            <title>Movies</title>
             <link rel="stylesheet" href="styles.css">
         </head>
         <body>
-            <h1>Comedy Movies</h1>
+            <h1>Movies</h1>
             <div class="container">${moviesHTML}</div>
         </body>
         </html>
@@ -45,7 +45,7 @@ function generateHTML(movies: Movie[]): string {
 }
 
 async function createHTMLFile() {
-    const movies = await fetchComedyMovies();
+    const movies = await fetchMovies();
     if (movies.length > 0) {
         const html = generateHTML(movies);
         await writeFile('index.html', html);
